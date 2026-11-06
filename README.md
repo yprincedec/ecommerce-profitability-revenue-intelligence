@@ -62,6 +62,16 @@ RFM uses historical records through **2026-11-06**, with **2026-11-07** as the r
 
 R, F, and M quintile scores (1–5) were created and mapped into six project-defined segments: Champions, Loyal Customers, New Customers, At Risk, Lost Customers, and Potential Loyalists. These labels follow custom project rules and are not universal industry-standard classifications.
 
+## RFM validation results
+
+- RFM customers: **804**; unique Customer IDs: **804**.
+- Missing values in the RFM output: **0**.
+- RFM Monetary total and historical Sales total both equal **$2,153,969.48**.
+- RFM Total Profit and historical Profit total both equal **$273,013.27**.
+- Segment profit contribution: At Risk **25.62%**, Loyal Customers **24.92%**, Champions **22.26%**, Lost Customers **12.55%**, Potential Loyalists **7.88%**, New Customers **6.76%**.
+
+The validation totals match exactly. The detailed segment table, margins, methodology, and limitations are documented in [reports/rfm_customer_segmentation.md](reports/rfm_customer_segmentation.md).
+
 ## Data-quality notes and limitations
 
 - **Future-dated rows:** 828 records have Order Dates after 2026-11-06. They are retained in the dataset but excluded from historical trend and RFM analysis.
