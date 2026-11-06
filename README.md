@@ -2,85 +2,101 @@
 
 An end-to-end analytics portfolio project focused on sales, profitability, customer behavior, and business reporting.
 
-## Project objectives
+## Current progress
 
-- Understand and validate retail transaction data.
-- Identify sales and profit trends across products, categories, regions, and time.
-- Investigate discounting and loss-making product segments.
-- Segment customers using RFM (Recency, Frequency, Monetary) analysis.
-- Build and evaluate carefully validated predictive models.
-- Develop an interactive Power BI dashboard with actionable findings.
+| Workstream | Status |
+|---|---|
+| Data understanding | Complete |
+| Initial cleaning and validation | Complete |
+| Exploratory data analysis | Core analysis complete |
+| Customer analysis | Complete through repeat-vs-one-time review |
+| RFM segmentation | Initial scoring and six custom segments created; final validation output still needs review |
+| SQL business analysis | Planned |
+| Profit prediction | Planned |
+| Sales forecasting | Planned |
+| Power BI dashboard | Planned |
 
-## Technology stack
+## Dataset overview
 
-- Python: pandas, NumPy, Matplotlib, Seaborn, scikit-learn
-- SQL: PostgreSQL
-- BI: Microsoft Power BI, Power Query, DAX
-- Development: Google Colab, Jupyter Notebook, GitHub
+The inspected working file contains **10,194 rows × 21 columns**, with order, customer, product, shipping, geography, sales, quantity, discount, and profit fields.
 
-## Dataset and provenance note
+- Unique orders: 5,111
+- Customer IDs: 804
+- Products: 1,862
+- Countries: United States (9,994 rows) and Canada (200 rows)
+- Order dates: 2023-01-03 to 2026-12-30
+- Missing values: 0
+- Exact duplicate rows: 0
+- Duplicate Row IDs: 0
 
-The working file used in the initial Colab inspection was `sample_-_superstore (1).xls`.
+The file differs from the commonly circulated 9,994-row, US-only Sample Superstore version. Its exact provenance has not been independently verified, so this project treats it as a modified/extended Superstore-style dataset rather than claiming it is the canonical original.
 
-Observed contents:
-- **10,194 rows × 21 columns**
-- **2023-01-03 to 2026-12-30**
-- United States: 9,994 rows
-- Canada: 200 rows
+## Work completed
 
-This differs from the commonly circulated 9,994-row, US-only Sample Superstore version. The exact provenance/version of the uploaded file has **not** been independently verified. Until confirmed, this project treats it as a modified/extended variant and does not describe it as the canonical original dataset.
+### Initial cleaning and validation
+- Preserved raw and working copies.
+- Stripped leading/trailing whitespace from text columns.
+- Converted Postal Code to string to support mixed numeric and alphanumeric postal codes.
+- Validated missing values, duplicates, Row IDs, date order, and numeric ranges.
+- No rows were deleted during initial cleaning.
 
-The dataset contains fictional retail transaction information such as sales, profit, discounts, products, customers, dates, shipping, and geography. It does not contain website sessions, clicks, advertising spend, marketing campaign costs, or inventory records. Therefore, this project will not claim to measure web conversion rates, advertising ROI, or inventory performance.
+### Exploratory analysis
+- Overall sales, profit, order, customer, and quantity KPIs.
+- Category and sub-category performance.
+- Discount-band and category-versus-discount analysis.
+- Regional performance.
+- Historical monthly sales and profit trends.
+- Customer-level sales and profitability.
+- Repeat versus one-time customer analysis.
 
-See [dataset/README.md](dataset/README.md) for handling notes. Raw data is not committed to this repository.
+### RFM segmentation
+RFM uses historical records through **2026-11-06**, with **2026-11-07** as the reference date. The 828 rows dated after the cutoff are excluded.
 
-## Initial data-quality findings
+- Historical rows: 9,366
+- Historical unique orders: 4,672
+- Customers represented: 804
+- Recency: days since last historical order
+- Frequency: distinct historical orders per Customer ID
+- Monetary: historical Sales total
+- Total Profit is retained as a supporting metric.
 
-- Missing values: **0**
-- Exact duplicate rows: **0**
-- Duplicate Row IDs: **0**
-- Ship dates earlier than order dates: **0**
-- Non-positive sales: **0**
-- Non-positive quantities: **0**
-- Discounts outside the 0–1 range: **0**
-- Postal Code standardized to text to preserve alphanumeric Canadian postal codes and leading zeros.
-- Leading/trailing whitespace removed from text columns.
-- **828 rows (8.12%)** have order dates later than 2026-11-06. These rows are preserved pending source verification and must be handled explicitly in time-based analysis; they must not silently enter historical training/evaluation windows.
+R, F, and M quintile scores (1–5) were created and mapped into six project-defined segments: Champions, Loyal Customers, New Customers, At Risk, Lost Customers, and Potential Loyalists. These labels follow custom project rules and are not universal industry-standard classifications.
 
-These findings describe the inspected working file and should be reproduced from the notebook before further analysis.
+## Data-quality notes and limitations
 
-## Planned workflow
+- **Future-dated rows:** 828 records have Order Dates after 2026-11-06. They are retained in the dataset but excluded from historical trend and RFM analysis.
+- **Partial month:** November 2026 is incomplete at the analysis cutoff.
+- **Customer mapping anomaly:** Harry Olson is associated with five Customer IDs. Two orders are each linked to four different Customer IDs and show repeated product and sales/profit patterns. No IDs have been merged and no records deleted; Customer ID remains the RFM identifier pending source verification.
+- **Order-count discrepancy:** Summing customer-level order counts yields 5,117 customer-order associations, while there are 5,111 distinct Order IDs. The difference comes from the two orders linked to multiple Customer IDs.
+- **Discount analysis:** Losses in higher discount bands are associations, not proof that discounts caused the losses.
+- **Dataset scope:** No ad spend, web traffic, conversion, inventory, or campaign data is available. Those metrics cannot be directly analyzed.
 
-1. Data understanding and validation
-2. Data cleaning and quality checks
-3. Exploratory data analysis
-4. SQL business analysis
-5. RFM customer segmentation
-6. Profitability analysis and carefully validated prediction
-7. Sales trend/forecasting with time-based validation
-8. Power BI dashboard and documentation
+## Planned Power BI dashboard
+
+1. Executive Overview
+2. Product & Profitability
+3. Customer Intelligence
+4. Forecasting & Business Insights
 
 ## Repository structure
 
 ```text
 dataset/       Dataset source notes (raw data excluded)
-notebooks/     Jupyter/Colab notebooks
+notebooks/     Python/Colab notebooks
 sql/           SQL analysis
 powerbi/       Power BI project files
 reports/       Findings and documentation
 visuals/       Exported charts and dashboard images
 ```
 
+## Technology stack
+
+Python, pandas, NumPy, Matplotlib, Seaborn, scikit-learn, PostgreSQL, Power BI, Google Colab, and GitHub.
+
 ## Reproducibility
 
-Install dependencies with:
-
-```bash
-pip install -r requirements.txt
-```
-
-The notebooks will document data preparation, assumptions, evaluation methods, and limitations.
+Install dependencies with `pip install -r requirements.txt`. The notebook will document data preparation, assumptions, evaluation methods, and limitations.
 
 ## License and attribution
 
-The dataset is separate from this repository's code and documentation. Refer to the actual source and applicable terms before redistribution.
+The dataset is separate from this repository's code and documentation. Confirm the actual source and applicable terms before redistribution. Raw data is not committed to this repository.
