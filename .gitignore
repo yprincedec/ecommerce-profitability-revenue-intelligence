@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Local data files
+dataset/*.xls
+dataset/*.xlsx
+dataset/*.csv
+!dataset/README.md
+!dataset/.gitkeep
+
+# Generated outputs
+reports/generated/
+visuals/generated/
+*.log
+.DS_Store
+Thumbs.db
