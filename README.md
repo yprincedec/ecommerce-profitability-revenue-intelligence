@@ -105,7 +105,7 @@ The validation totals match exactly. The detailed segment table, margins, method
 ```text
 dataset/       Dataset source notes and exported SQL result archive
 notebooks/     Python/Colab notebooks
-sql/           SQL analysis scripts (to be added)
+sql/           SQLite Phase 4 analysis scripts and run instructions
 powerbi/       Power BI project files (to be added)
 reports/       Findings and documentation
 visuals/       Exported charts and dashboard images
@@ -117,7 +117,7 @@ Python, pandas, NumPy, Matplotlib, Seaborn, scikit-learn, SQLite, Power BI, Goog
 
 ## Reproducibility
 
-Install dependencies with `pip install -r requirements.txt`. The uploaded notebooks document the current analysis workflow. Confirm data paths and rerun cells in a fresh runtime before reproducing results.
+Install dependencies with `pip install -r requirements.txt`. The uploaded notebooks document the current analysis workflow. Phase 4 SQL queries are available in [sql/phase4_business_analysis.sql](sql/phase4_business_analysis.sql); load the cleaned data into a SQLite table named `orders` and follow [sql/README.md](sql/README.md). Confirm data paths and rerun cells in a fresh runtime before reproducing results.
 
 ## License and attribution
 
