@@ -1,12 +1,17 @@
 # Notebooks
 
-Python notebooks will be added in this order:
+The main Google Colab notebook currently contains data understanding, initial cleaning/validation, exploratory analysis, customer analysis, and initial RFM segmentation.
 
-1. 01_data_understanding.ipynb
-2. 02_data_cleaning.ipynb
-3. 03_exploratory_analysis.ipynb
-4. 04_rfm_segmentation.ipynb
-5. 05_profit_prediction.ipynb
-6. 06_sales_forecasting.ipynb
+## Next export
 
-Each notebook will be committed after its code and outputs have been checked. Dataset-specific assumptions and model results must come from actual execution, not estimates.
+Export the current Colab notebook as:
+
+`01_Data_Understanding_and_EDA.ipynb`
+
+Then upload it into this folder. Before committing:
+- Restart the runtime and run all cells where feasible.
+- Confirm outputs and validation checks.
+- Remove credentials or private information.
+- Ensure no raw dataset is embedded or redistributed without confirming its license.
+
+The GitHub connector cannot directly access the live Colab runtime, so the notebook file itself has not yet been uploaded.
