@@ -11,7 +11,7 @@ An end-to-end analytics portfolio project focused on sales, profitability, custo
 | Exploratory data analysis | Core analysis complete |
 | Customer analysis | Complete through repeat-vs-one-time review |
 | RFM segmentation | Complete — six segments created and totals validated |
-| SQL business analysis | Planned |
+| SQL business analysis | Complete — 15 analysis outputs exported |
 | Profit prediction | Planned |
 | Sales forecasting | Planned |
 | Power BI dashboard | Planned |
@@ -62,6 +62,17 @@ RFM uses historical records through **2026-11-06**, with **2026-11-07** as the r
 
 R, F, and M quintile scores (1–5) were created and mapped into six project-defined segments: Champions, Loyal Customers, New Customers, At Risk, Lost Customers, and Potential Loyalists. These labels follow custom project rules and are not universal industry-standard classifications.
 
+### SQL business analysis
+Phase 4 was completed using SQLite on 9,366 historical records through **2026-11-06**. The analysis covers overall performance, category and sub-category profitability, discount bands, regions, yearly and monthly trends, products, customer segments, shipping modes, and state/province performance.
+
+- Historical sales: **$2,153,969.48**
+- Historical profit: **$273,013.27**
+- Profit margin: **12.67%**
+- Unique orders: **4,672**
+- Unique customers: **804**
+- 15 CSV result tables were exported and bundled in [dataset/phase4_sql_outputs.zip](dataset/phase4_sql_outputs.zip).
+- Detailed findings and limitations: [reports/phase4_sql_business_analysis.md](reports/phase4_sql_business_analysis.md).
+
 ## RFM validation results
 
 - RFM customers: **804**; unique Customer IDs: **804**.
@@ -78,6 +89,7 @@ The validation totals match exactly. The detailed segment table, margins, method
 - **Partial month:** November 2026 is incomplete at the analysis cutoff.
 - **Customer mapping anomaly:** Harry Olson is associated with five Customer IDs. Two orders are each linked to four different Customer IDs and show repeated product and sales/profit patterns. No IDs have been merged and no records deleted; Customer ID remains the RFM identifier pending source verification.
 - **Order-count discrepancy:** Summing customer-level order counts yields 5,117 customer-order associations, while there are 5,111 distinct Order IDs. The difference comes from the two orders linked to multiple Customer IDs.
+- **Customer-frequency discrepancy:** Phase 3 previously reported 12 one-time customers, while the Phase 4 SQL grouping found 24. This remains unresolved and should be reconciled before treating the results as consistent.
 - **Discount analysis:** Losses in higher discount bands are associations, not proof that discounts caused the losses.
 - **Dataset scope:** No ad spend, web traffic, conversion, inventory, or campaign data is available. Those metrics cannot be directly analyzed.
 
@@ -91,21 +103,21 @@ The validation totals match exactly. The detailed segment table, margins, method
 ## Repository structure
 
 ```text
-dataset/       Dataset source notes (raw data excluded)
+dataset/       Dataset source notes and exported SQL result archive
 notebooks/     Python/Colab notebooks
-sql/           SQL analysis
-powerbi/       Power BI project files
+sql/           SQL analysis scripts (to be added)
+powerbi/       Power BI project files (to be added)
 reports/       Findings and documentation
 visuals/       Exported charts and dashboard images
 ```
 
 ## Technology stack
 
-Python, pandas, NumPy, Matplotlib, Seaborn, scikit-learn, PostgreSQL, Power BI, Google Colab, and GitHub.
+Python, pandas, NumPy, Matplotlib, Seaborn, scikit-learn, SQLite, Power BI, Google Colab, and GitHub.
 
 ## Reproducibility
 
-Install dependencies with `pip install -r requirements.txt`. The notebook will document data preparation, assumptions, evaluation methods, and limitations.
+Install dependencies with `pip install -r requirements.txt`. The uploaded notebooks document the current analysis workflow. Confirm data paths and rerun cells in a fresh runtime before reproducing results.
 
 ## License and attribution
 
