@@ -91,7 +91,11 @@ The earlier Phase 3 analysis reported 12 one-time customers. This discrepancy re
 
 ## Exported SQL outputs
 
-15 CSV result tables were exported in the Colab runtime to the `sql_outputs/` folder. These local exports have not yet been uploaded to GitHub.
+The 15 CSV result tables were exported from Colab and bundled into a ZIP archive. The archive is now committed to this repository:
+
+- [Download Phase 4 SQL outputs ZIP](../dataset/phase4_sql_outputs.zip)
+
+The ZIP contains the exported result tables from the completed SQL analysis. The individual CSV files remain bundled in the archive rather than stored separately in the repository.
 
 ## Data interpretation notes
 
