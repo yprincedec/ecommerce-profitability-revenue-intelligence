@@ -155,8 +155,8 @@ GROUP BY strftime('%Y-%m', "Order Date")
 ORDER BY year_month;
 
 -- 12. One-time vs repeat customer frequency
--- Counts distinct orders per Customer ID; customer-order associations can exceed
--- distinct order count when an Order ID maps to multiple Customer IDs.
+-- Counts distinct orders per Customer ID. The sum of customer-order associations
+-- may be greater than distinct orders when an Order ID maps to multiple Customer IDs.
 WITH customer_orders AS (
     SELECT
         "Customer ID",
