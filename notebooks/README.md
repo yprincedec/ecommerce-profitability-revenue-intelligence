@@ -1,17 +1,22 @@
 # Notebooks
 
-The main Google Colab notebook currently contains data understanding, initial cleaning/validation, exploratory analysis, customer analysis, and initial RFM segmentation.
+This folder contains the project's uploaded Jupyter/Colab notebooks.
 
-## Next export
+## Available notebooks
 
-Export the current Colab notebook as:
+- [01_Data_Understanding_and_EDA.ipynb](01_Data_Understanding_and_EDA.ipynb) — uploaded analysis notebook.
+- [01_data_understanding.ipynb](01_data_understanding.ipynb) — source notebook with data preparation notes and initial findings.
 
-`01_Data_Understanding_and_EDA.ipynb`
+A separate notebook, `Superstore_Sales_.ipynb`, is also present at the repository root.
 
-Then upload it into this folder. Before committing:
+## Reproducibility checks
+
+Before presenting the notebooks as fully reproducible:
+- Open each notebook in Jupyter or Google Colab.
 - Restart the runtime and run all cells where feasible.
+- Confirm that required input data is available at the documented path.
 - Confirm outputs and validation checks.
 - Remove credentials or private information.
-- Ensure no raw dataset is embedded or redistributed without confirming its license.
+- Ensure raw data is not embedded or redistributed without confirming its license.
 
-The GitHub connector cannot directly access the live Colab runtime, so the notebook file itself has not yet been uploaded.
+The repository contains notebook files, but their successful execution in a fresh environment has not been independently verified.
