@@ -10,7 +10,7 @@ An end-to-end analytics portfolio project focused on sales, profitability, custo
 | Initial cleaning and validation | Complete |
 | Exploratory data analysis | Core analysis complete |
 | Customer analysis | Complete through repeat-vs-one-time review |
-| RFM segmentation | Initial scoring and six custom segments created; final validation output still needs review |
+| RFM segmentation | Complete — six segments created and totals validated |
 | SQL business analysis | Planned |
 | Profit prediction | Planned |
 | Sales forecasting | Planned |
