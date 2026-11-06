@@ -205,27 +205,27 @@ ORDER BY "Category",
 
 -- 14. State/province-level performance
 SELECT
-    "Country",
-    "State",
+    "Country/Region",
+    "State/Province",
     ROUND(SUM("Sales"), 2) AS total_sales,
     ROUND(SUM("Profit"), 2) AS total_profit,
     ROUND(100.0 * SUM("Profit") / NULLIF(SUM("Sales"), 0), 2) AS profit_margin_pct,
     COUNT(DISTINCT "Order ID") AS unique_orders
 FROM orders
 WHERE date("Order Date") <= date('2026-11-06')
-GROUP BY "Country", "State"
+GROUP BY "Country/Region", "State/Province"
 ORDER BY total_profit DESC;
 
 -- 15. State/province profitability summary
 WITH state_performance AS (
     SELECT
-        "Country",
-        "State",
+        "Country/Region",
+        "State/Province",
         SUM("Sales") AS total_sales,
         SUM("Profit") AS total_profit
     FROM orders
     WHERE date("Order Date") <= date('2026-11-06')
-    GROUP BY "Country", "State"
+    GROUP BY "Country/Region", "State/Province"
 )
 SELECT
     COUNT(*) AS total_states_provinces,
