@@ -103,3 +103,23 @@ The ZIP contains the exported result tables from the completed SQL analysis. The
 - State-level results include both U.S. states and Canadian provinces, as represented in the source field.
 - Order counts grouped by category, shipping mode, or customer can overlap and should not be summed as if each group were mutually exclusive.
 - Profit margin is calculated as total profit divided by total sales, multiplied by 100.
+
+## SQL script execution validation
+
+The repository SQL script `sql/phase4_business_analysis.sql` was executed against the Colab SQLite database and checked against the `orders` table.
+
+- Database table: `orders`
+- Rows validated: **9,366**
+- Columns: **23**
+- Queries in script: **15**
+- Query execution status: **15/15 successful**
+- Overall totals matched the Phase 4 analysis: **$2,153,969.48** sales, **$273,013.27** profit, **4,672** distinct orders, and **804** customers.
+
+### Validation fixes
+
+- Updated the state/country queries to use the actual schema names `State/Province` and `Country/Region`.
+- Corrected a SQL comment containing a semicolon that interfered with a simple Python query-splitting test. The customer-frequency query was then executed separately and returned the expected 780 repeat customers and 24 one-time customers.
+
+The Phase 3 vs Phase 4 one-time-customer discrepancy (12 vs 24) remains unresolved. The six-count difference between customer-order associations (4,678) and distinct orders (4,672) also remains documented; no customer IDs or source rows were merged or removed.
+
+**Validation note:** This confirms that all 15 SQL statements execute successfully against the current Colab database and that the overall totals match the recorded Phase 4 results. It does not independently resolve the customer-frequency discrepancy with Phase 3.
