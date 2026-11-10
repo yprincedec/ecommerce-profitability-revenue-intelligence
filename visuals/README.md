@@ -1,11 +1,11 @@
-# Dashboard visuals
+# Dashboard screenshots
 
-Five Power BI page screenshots have been committed in the repository root and are embedded in the [main README](../README.md#dashboard-screenshots):
+These five images are static page previews of the interactive Power BI report:
 
-- [Executive Overview](../executive-overview.png)
-- [Product & Profitability](../product-profitability.png)
-- [Customer Intelligence](../customer-intelligence.png)
-- [RFM Customer Analysis](../rfm-analysis.png)
-- [Business Insights & Trends](../business-insights.png)
+- [Executive Overview](executive-overview.png)
+- [Product & Profitability](product-profitability.png)
+- [Customer Intelligence](customer-intelligence.png)
+- [RFM Customer Analysis](rfm-analysis.png)
+- [Business Insights & Trends](business-insights.png)
 
-The screenshots are currently in the repository root because that is where the GitHub upload placed them. This folder is reserved for future exported charts or visual assets; no screenshot files are currently stored inside this folder.
+Open the [Power BI report](../powerbi/Ecommerce_Profitability_Dashboard.pbix) in Power BI Desktop for slicers and interactive exploration. Screenshots are static and do not contain report interactions.
