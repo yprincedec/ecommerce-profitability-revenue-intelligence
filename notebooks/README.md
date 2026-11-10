@@ -1,22 +1,23 @@
 # Notebooks
 
-This folder contains the project's uploaded Jupyter/Colab notebooks.
+The canonical end-to-end analysis notebook is:
 
-## Available notebooks
+- **[E-commerce Profitability & Revenue Intelligence](Ecommerce_Profitability_Revenue_Intelligence.ipynb)** — primary working notebook covering data understanding, cleaning, EDA, customer analysis, RFM segmentation, and Phase 4 SQLite business analysis. It contains the latest uploaded Colab work, with the duplicate Step 9.8 cell removed and a project introduction added.
 
-- [01_Data_Understanding_and_EDA.ipynb](01_Data_Understanding_and_EDA.ipynb) — uploaded analysis notebook.
-- [01_data_understanding.ipynb](01_data_understanding.ipynb) — source notebook with data preparation notes and initial findings.
+## Supporting notebooks
 
-A separate notebook, `Superstore_Sales_.ipynb`, is also present at the repository root.
+- [01_data_understanding.ipynb](01_data_understanding.ipynb) — concise data inspection, validation notes, and initial preparation workflow.
+- [01_Data_Understanding_and_EDA.ipynb](01_Data_Understanding_and_EDA.ipynb) — earlier 37-cell EDA/RFM snapshot; retained as a historical reference, not the primary notebook.
 
-## Reproducibility checks
+## Reproducibility
 
-Before presenting the notebooks as fully reproducible:
-- Open each notebook in Jupyter or Google Colab.
-- Restart the runtime and run all cells where feasible.
-- Confirm that required input data is available at the documented path.
-- Confirm outputs and validation checks.
-- Remove credentials or private information.
-- Ensure raw data is not embedded or redistributed without confirming its license.
+The primary notebook includes saved execution outputs from the uploaded Colab session. A clean-runtime, top-to-bottom rerun has **not** been independently verified.
 
-The repository contains notebook files, but their successful execution in a fresh environment has not been independently verified.
+To reproduce the work:
+1. Open the primary notebook in Google Colab or Jupyter.
+2. Upload the modified/extended Superstore-style workbook when prompted.
+3. Run all cells from top to bottom in a fresh runtime.
+4. Confirm the data cutoff, KPI totals, RFM validation, SQL exports, and output files.
+5. Review the dataset provenance and redistribution terms before sharing the workbook.
+
+The source workbook is not stored in this repository. See [dataset/README.md](../dataset/README.md) for its scope and handling notes.
