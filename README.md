@@ -14,7 +14,7 @@ An end-to-end analytics portfolio project focused on sales, profitability, custo
 | SQL business analysis | Complete — 15 analysis outputs exported |
 | Profit prediction | Planned |
 | Sales forecasting | Planned |
-| Power BI dashboard | Planned |
+| Power BI dashboard | Built locally — 5 pages completed; PBIX upload pending |
 
 ## Dataset overview
 
@@ -93,12 +93,17 @@ The validation totals match exactly. The detailed segment table, margins, method
 - **Discount analysis:** Losses in higher discount bands are associations, not proof that discounts caused the losses.
 - **Dataset scope:** No ad spend, web traffic, conversion, inventory, or campaign data is available. Those metrics cannot be directly analyzed.
 
-## Planned Power BI dashboard
+## Power BI dashboard
 
-1. Executive Overview
-2. Product & Profitability
-3. Customer Intelligence
-4. Forecasting & Business Insights
+The interactive Power BI report has been built and reviewed locally. It contains five pages:
+
+1. **Executive Overview** — sales, profit, orders, margin, and regional/category trends.
+2. **Product & Profitability** — product rankings, sub-category performance, category margins, and discount impact.
+3. **Customer Intelligence** — customer segments, sales contribution, profit contribution, and average order value.
+4. **RFM Customer Analysis** — segment distribution and recency, frequency, and monetary analysis.
+5. **Business Insights & Trends** — monthly profit trends, regional sales vs. profit, discount impact, and category profit margins.
+
+Year, Category, and Region slicers are included on the Business Insights & Trends page. The report was saved as `Ecommerce_Profitability_Revenue_Intelligence.pbix` locally. **The PBIX binary has not yet been uploaded to this repository**; add it under `powerbi/` when available.
 
 ## Repository structure
 
