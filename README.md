@@ -25,6 +25,7 @@ This project examines sales performance, product profitability, discount pattern
 - [Read the SQL analysis guide](sql/README.md)
 - [Review SQL business findings](reports/phase4_sql_business_analysis.md)
 - [Review RFM methodology and findings](reports/rfm_customer_segmentation.md)
+- [Copy-ready LinkedIn project description](reports/linkedin_project_description.md)
 
 ## Key historical results
 
