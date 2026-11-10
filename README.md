@@ -1,149 +1,139 @@
 # E-commerce Profitability & Revenue Intelligence
 
-An end-to-end analytics portfolio project focused on sales, profitability, customer behavior, and business reporting.
+**End-to-end analytics portfolio project** using Python, Pandas, exploratory data analysis, customer segmentation, SQLite, and Power BI.
 
-## Current progress
+This project examines sales performance, product profitability, discount patterns, regional results, customer purchasing behaviour, and RFM-based customer segments.
 
-| Workstream | Status |
+## Project at a glance
+
+| Area | Status |
 |---|---|
-| Data understanding | Complete |
-| Initial cleaning and validation | Complete |
-| Exploratory data analysis | Core analysis complete |
-| Customer analysis | Complete through repeat-vs-one-time review |
-| RFM segmentation | Complete — six project-defined segments created and totals validated |
-| SQL business analysis | Complete — 15 analysis outputs exported |
-| Profit prediction | Planned |
-| Sales forecasting | Planned |
-| Power BI dashboard | Complete — five-page report saved locally and PBIX committed |
-| Dashboard screenshots | Complete — five page screenshots committed |
+| Data understanding and quality checks | Completed |
+| Data cleaning and validation | Completed |
+| Exploratory data analysis | Core analysis completed |
+| Customer behaviour and RFM segmentation | Completed; validation totals recorded |
+| SQLite business analysis | 15 result tables exported |
+| Power BI dashboard | Five-page report committed |
+| Profit prediction | Planned; not yet implemented |
+| Sales forecasting | Planned; not yet implemented |
+
+## Start here
+
+- **[Open the primary end-to-end notebook](notebooks/Ecommerce_Profitability_Revenue_Intelligence.ipynb)**
+- [Open the Power BI dashboard](powerbi/Ecommerce_Profitability_Dashboard.pbix)
+- [Read the Power BI report guide](powerbi/README.md)
+- [Read the SQL analysis guide](sql/README.md)
+- [Review SQL business findings](reports/phase4_sql_business_analysis.md)
+- [Review RFM methodology and findings](reports/rfm_customer_segmentation.md)
+
+## Key historical results
+
+The historical analysis uses records through **2026-11-06**. The 828 records dated after this cutoff are excluded from historical trend and RFM calculations.
+
+| Metric | Historical result |
+|---|---:|
+| Sales | **$2,153,969.48** |
+| Profit | **$273,013.27** |
+| Profit margin | **12.67%** |
+| Distinct orders | **4,672** |
+| Customers | **804** |
+| Historical records | **9,366** |
 
 ## Dataset overview
 
-The inspected working file contains **10,194 rows × 21 columns**, with order, customer, product, shipping, geography, sales, quantity, discount, and profit fields.
+The inspected working workbook contains **10,194 rows × 21 columns**: 9,994 US records and 200 Canadian records. It contains 5,111 unique orders, 804 Customer IDs, and 1,862 products across dates from 2023-01-03 to 2026-12-30. No missing values, exact duplicate rows, or duplicate Row IDs were found.
 
-- Unique orders: 5,111
-- Customer IDs: 804
-- Products: 1,862
-- Countries: United States (9,994 rows) and Canada (200 rows)
-- Order dates: 2023-01-03 to 2026-12-30
-- Missing values: 0
-- Exact duplicate rows: 0
-- Duplicate Row IDs: 0
+The workbook differs from the commonly circulated 9,994-row US-only Sample Superstore file. Its exact provenance has not been independently verified; this repository therefore calls it a **modified/extended Superstore-style dataset**, not the canonical original.
 
-The file differs from the commonly circulated 9,994-row, US-only Sample Superstore version. Its exact provenance has not been independently verified, so this project treats it as a modified/extended Superstore-style dataset rather than claiming it is the canonical original.
+## Analysis completed
 
-## Work completed
+### 1. Data understanding and cleaning
+- Inspected schema, data types, date coverage, geography, missing values, and duplicates.
+- Preserved raw and working DataFrame copies.
+- Standardized text fields and converted Postal Code to text for mixed numeric/alphanumeric values.
+- Validated date order, positive sales and quantity, discount range, Row IDs, and duplicates.
 
-### Initial cleaning and validation
-- Preserved raw and working copies.
-- Stripped leading/trailing whitespace from text columns.
-- Converted Postal Code to string to support mixed numeric and alphanumeric postal codes.
-- Validated missing values, duplicates, Row IDs, date order, and numeric ranges.
-- No rows were deleted during initial cleaning.
-
-### Exploratory analysis
+### 2. Exploratory data analysis
 - Overall sales, profit, order, customer, and quantity KPIs.
-- Category and sub-category performance.
-- Discount-band and category-versus-discount analysis.
-- Regional performance.
-- Historical monthly sales and profit trends.
-- Customer-level sales and profitability.
-- Repeat versus one-time customer analysis.
+- Category and sub-category profitability.
+- Discount-band and category-by-discount analysis.
+- Regional performance and monthly sales/profit trends.
+- Customer-level sales, profitability, and repeat-versus-one-time analysis.
 
-### RFM segmentation
-RFM uses historical records through **2026-11-06**, with **2026-11-07** as the reference date. The 828 rows dated after the cutoff are excluded.
+### 3. RFM customer segmentation
+RFM uses historical records through **2026-11-06**, with **2026-11-07** as the reference date. Recency, Frequency (distinct orders), and Monetary (Sales) are calculated per Customer ID. Six project-defined segments are used: Champions, Loyal Customers, New Customers, At Risk, Lost Customers, and Potential Loyalists.
 
-- Historical rows: 9,366
-- Historical unique orders: 4,672
-- Customers represented: 804
-- Recency: days since last historical order
-- Frequency: distinct historical orders per Customer ID
-- Monetary: historical Sales total
-- Total Profit is retained as a supporting metric.
+Validation records 804 RFM customers and 804 unique Customer IDs, no missing RFM values, and matching RFM Monetary/Profit totals against historical Sales/Profit. Segment definitions are custom project rules, not universal industry standards. See [the RFM report](reports/rfm_customer_segmentation.md).
 
-R, F, and M quintile scores (1–5) were created and mapped into six project-defined segments: Champions, Loyal Customers, New Customers, At Risk, Lost Customers, and Potential Loyalists. These labels follow custom project rules and are not universal industry-standard classifications.
+### 4. SQL business analysis
+Phase 4 uses SQLite on 9,366 historical rows. It covers overall KPIs, category/sub-category performance, discount impact, regions, yearly/monthly trends, products, customer segments, shipping modes, purchase frequency, and state/province analysis.
 
-### SQL business analysis
-Phase 4 was completed using SQLite on 9,366 historical records through **2026-11-06**. The analysis covers overall performance, category and sub-category profitability, discount bands, regions, yearly and monthly trends, products, customer segments, shipping modes, and state/province performance.
+- 15 CSV result tables: [dataset/phase4_sql_outputs.zip](dataset/phase4_sql_outputs.zip)
+- SQL source: [sql/phase4_business_analysis.sql](sql/phase4_business_analysis.sql)
+- Findings: [reports/phase4_sql_business_analysis.md](reports/phase4_sql_business_analysis.md)
 
-- Historical sales: **$2,153,969.48**
-- Historical profit: **$273,013.27**
-- Profit margin: **12.67%**
-- Unique orders: **4,672**
-- Unique customers: **804**
-- 15 CSV result tables were exported and bundled in [dataset/phase4_sql_outputs.zip](dataset/phase4_sql_outputs.zip).
-- Detailed findings and limitations: [reports/phase4_sql_business_analysis.md](reports/phase4_sql_business_analysis.md).
+### 5. Power BI dashboard
 
-## RFM validation results
+The [Power BI report](powerbi/Ecommerce_Profitability_Dashboard.pbix) contains five pages:
 
-- RFM customers: **804**; unique Customer IDs: **804**.
-- Missing values in the RFM output: **0**.
-- RFM Monetary total and historical Sales total both equal **$2,153,969.48**.
-- RFM Total Profit and historical Profit total both equal **$273,013.27**.
-- Segment profit contribution: At Risk **25.62%**, Loyal Customers **24.92%**, Champions **22.26%**, Lost Customers **12.55%**, Potential Loyalists **7.88%**, New Customers **6.76%**.
+1. **Executive Overview** — headline KPIs, sales/profit trends, category and regional performance.
+2. **Product & Profitability** — product rankings, sub-category profit, margins, and discount analysis.
+3. **Customer Intelligence** — customer segments, sales/profit contribution, and customer metrics.
+4. **RFM Customer Analysis** — RFM segment distribution and customer metrics.
+5. **Business Insights & Trends** — monthly profit, regional comparison, discount impact, category margins, and slicers.
 
-The validation totals match exactly. The detailed segment table, margins, methodology, and limitations are documented in [reports/rfm_customer_segmentation.md](reports/rfm_customer_segmentation.md).
+## Dashboard previews
 
-## Data-quality notes and limitations
+![Executive Overview](visuals/executive-overview.png)
+![Product & Profitability](visuals/product-profitability.png)
+![Customer Intelligence](visuals/customer-intelligence.png)
+![RFM Customer Analysis](visuals/rfm-analysis.png)
+![Business Insights & Trends](visuals/business-insights.png)
 
-- **Future-dated rows:** 828 records have Order Dates after 2026-11-06. They are retained in the dataset but excluded from historical trend and RFM analysis.
-- **Partial month:** November 2026 is incomplete at the analysis cutoff.
-- **Customer mapping anomaly:** Harry Olson is associated with five Customer IDs. Two orders are each linked to four different Customer IDs and show repeated product and sales/profit patterns. No IDs have been merged and no records deleted; Customer ID remains the RFM identifier pending source verification.
-- **Order-count / customer-association discrepancy:** Phase 4 SQL reports 4,678 customer-order associations across 804 Customer IDs versus 4,672 distinct Order IDs (six extra associations). An earlier Phase 3 summary reported 5,117 associations; that result has not yet been reconciled with the Phase 4 calculation. Two orders were observed linked to multiple Customer IDs, and Harry Olson is associated with five Customer IDs. No IDs have been merged and no rows have been deleted.
-- **Customer-frequency discrepancy:** Phase 3 previously reported 12 one-time customers, while the Phase 4 SQL grouping found 24. This remains unresolved and should be reconciled before treating the results as consistent.
-- **Discount analysis:** Losses in higher discount bands are associations, not proof that discounts caused the losses.
-- **Dataset scope:** No ad spend, web traffic, conversion, inventory, or campaign data is available. Those metrics cannot be directly analyzed.
-
-## Power BI dashboard
-
-The interactive Power BI report has been built, reviewed locally, and committed to this repository as [Ecommerce Profitability Dashboard.pbix](Ecommerce%20Profitability%20Dashboard.pbix). It contains five report pages:
-
-1. **Executive Overview** — sales, profit, orders, margin, and regional/category trends.
-2. **Product & Profitability** — product rankings, sub-category performance, category margins, and discount impact.
-3. **Customer Intelligence** — customer segments, sales contribution, profit contribution, and average order value.
-4. **RFM Customer Analysis** — segment distribution and recency, frequency, and monetary analysis.
-5. **Business Insights & Trends** — monthly profit trends, regional sales vs. profit, discount impact, and category profit margins.
-
-Year, Region, and Category slicers are included on the Business Insights & Trends page and were tested. See [powerbi/README.md](powerbi/README.md) for page details and the report file link.
-
-### Dashboard screenshots
-
-The five page screenshots below are committed in the repository root.
-
-#### Executive Overview
-![Executive Overview dashboard](executive-overview.png)
-
-#### Product & Profitability
-![Product and Profitability dashboard](product-profitability.png)
-
-#### Customer Intelligence
-![Customer Intelligence dashboard](customer-intelligence.png)
-
-#### RFM Customer Analysis
-![RFM Customer Analysis dashboard](rfm-analysis.png)
-
-#### Business Insights & Trends
-![Business Insights and Trends dashboard](business-insights.png)
+See [visuals/README.md](visuals/README.md) for the screenshot list.
 
 ## Repository structure
 
-    dataset/       Dataset source notes and exported SQL result archive
-    notebooks/     Python/Colab notebooks
-    powerbi/       Power BI documentation; PBIX report is in repository root
-    reports/       Findings and documentation
-    sql/           SQLite Phase 4 analysis scripts and run instructions
-    visuals/       Visual assets guidance; screenshots currently in repository root
-    *.png          Five Power BI page screenshots
-    *.pbix         Interactive Power BI report
+```text
+.
+├── dataset/       Source notes and exported SQL results
+├── notebooks/     Primary Colab notebook and supporting data notes
+├── powerbi/       PBIX report and documentation
+├── reports/       RFM and SQL findings
+├── sql/           SQLite analysis script and run guide
+├── visuals/       Five Power BI page screenshots
+├── requirements.txt
+└── README.md
+```
 
 ## Technology stack
 
-Python, pandas, NumPy, Matplotlib, Seaborn, scikit-learn, SQLite, Power BI, Google Colab, and GitHub.
+Python, Pandas, NumPy, Matplotlib, Seaborn, scikit-learn, SQLite, Power BI, Google Colab, Jupyter, and GitHub.
 
 ## Reproducibility
 
-Install dependencies with pip install -r requirements.txt. The uploaded notebooks document the current analysis workflow. Phase 4 SQL queries are available in [sql/phase4_business_analysis.sql](sql/phase4_business_analysis.sql); load the cleaned data into a SQLite table named orders and follow [sql/README.md](sql/README.md). Confirm data paths and rerun cells in a fresh runtime before reproducing results. Notebook execution in a fresh environment has not been independently verified.
+Install dependencies with `pip install -r requirements.txt`. Open the [primary notebook](notebooks/Ecommerce_Profitability_Revenue_Intelligence.ipynb) in Colab/Jupyter and upload the source workbook when prompted. For SQL, load the cleaned data into a SQLite table named `orders` and follow [sql/README.md](sql/README.md).
 
-## License and attribution
+Saved notebook outputs are included, but a full restart-and-run-all test in a clean environment has not yet been independently verified. The source workbook is not committed; verify its provenance and redistribution terms before sharing it.
 
-The dataset is separate from this repository's code and documentation. Confirm the actual source and applicable terms before redistribution. Raw data is not committed to this repository.
+## Data-quality findings and limitations
+
+- 828 rows dated after 2026-11-06 are excluded from historical analysis but retained in the source dataset.
+- November 2026 is incomplete at the analysis cutoff.
+- Harry Olson is associated with five Customer IDs; two orders are linked to multiple Customer IDs. No IDs have been merged.
+- Phase 4 reports 4,678 customer-order associations versus 4,672 distinct Order IDs; an earlier Phase 3 summary reported 5,117 associations. This discrepancy remains unresolved.
+- Phase 3 previously reported 12 one-time customers, while Phase 4 SQL reported 24. This also remains unresolved.
+- Discount-band relationships are descriptive associations, not proof of causation.
+- Ad spend, web traffic, conversion, inventory, and campaign data are unavailable.
+
+## Future work
+
+1. Rerun the canonical notebook from a fresh Colab runtime and resolve any errors.
+2. Reconcile customer/order identity and one-time-customer count discrepancies.
+3. Build and evaluate a profit prediction baseline.
+4. Develop a time-aware sales forecasting workflow.
+5. Document model limitations and business recommendations.
+
+---
+
+*Dataset attribution and redistribution rights should be verified against the original source before the workbook is shared.*
