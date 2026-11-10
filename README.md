@@ -103,7 +103,7 @@ The interactive Power BI report has been built and reviewed locally. It contains
 4. **RFM Customer Analysis** — segment distribution and recency, frequency, and monetary analysis.
 5. **Business Insights & Trends** — monthly profit trends, regional sales vs. profit, discount impact, and category profit margins.
 
-Year, Category, and Region slicers are included on the Business Insights & Trends page. The report was saved as `Ecommerce_Profitability_Revenue_Intelligence.pbix` locally. **The PBIX binary has not yet been uploaded to this repository**; add it under `powerbi/` when available.
+Year, Category, and Region slicers are included on the Business Insights & Trends page. The report was saved as `Ecommerce_Profitability_Revenue_Intelligence.pbix` locally. The PBIX report is now committed in the repository root as [`Ecommerce Profitability Dashboard.pbix`](Ecommerce%20Profitability%20Dashboard.pbix). Download it from GitHub and open it in Power BI Desktop.
 
 ## Repository structure
 
