@@ -10,11 +10,12 @@ An end-to-end analytics portfolio project focused on sales, profitability, custo
 | Initial cleaning and validation | Complete |
 | Exploratory data analysis | Core analysis complete |
 | Customer analysis | Complete through repeat-vs-one-time review |
-| RFM segmentation | Complete — six segments created and totals validated |
+| RFM segmentation | Complete — six project-defined segments created and totals validated |
 | SQL business analysis | Complete — 15 analysis outputs exported |
 | Profit prediction | Planned |
 | Sales forecasting | Planned |
-| Power BI dashboard | Built locally — 5 pages completed; PBIX upload pending |
+| Power BI dashboard | Complete — five-page report saved locally and PBIX committed |
+| Dashboard screenshots | Complete — five page screenshots committed |
 
 ## Dataset overview
 
@@ -95,7 +96,7 @@ The validation totals match exactly. The detailed segment table, margins, method
 
 ## Power BI dashboard
 
-The interactive Power BI report has been built and reviewed locally. It contains five pages:
+The interactive Power BI report has been built, reviewed locally, and committed to this repository as [Ecommerce Profitability Dashboard.pbix](Ecommerce%20Profitability%20Dashboard.pbix). It contains five report pages:
 
 1. **Executive Overview** — sales, profit, orders, margin, and regional/category trends.
 2. **Product & Profitability** — product rankings, sub-category performance, category margins, and discount impact.
@@ -103,18 +104,37 @@ The interactive Power BI report has been built and reviewed locally. It contains
 4. **RFM Customer Analysis** — segment distribution and recency, frequency, and monetary analysis.
 5. **Business Insights & Trends** — monthly profit trends, regional sales vs. profit, discount impact, and category profit margins.
 
-Year, Category, and Region slicers are included on the Business Insights & Trends page. The report was saved as `Ecommerce_Profitability_Revenue_Intelligence.pbix` locally. The PBIX report is now committed in the repository root as [`Ecommerce Profitability Dashboard.pbix`](Ecommerce%20Profitability%20Dashboard.pbix). Download it from GitHub and open it in Power BI Desktop.
+Year, Region, and Category slicers are included on the Business Insights & Trends page and were tested. See [powerbi/README.md](powerbi/README.md) for page details and the report file link.
+
+### Dashboard screenshots
+
+The five page screenshots below are committed in the repository root.
+
+#### Executive Overview
+![Executive Overview dashboard](executive-overview.png)
+
+#### Product & Profitability
+![Product and Profitability dashboard](product-profitability.png)
+
+#### Customer Intelligence
+![Customer Intelligence dashboard](customer-intelligence.png)
+
+#### RFM Customer Analysis
+![RFM Customer Analysis dashboard](rfm-analysis.png)
+
+#### Business Insights & Trends
+![Business Insights and Trends dashboard](business-insights.png)
 
 ## Repository structure
 
-```text
-dataset/       Dataset source notes and exported SQL result archive
-notebooks/     Python/Colab notebooks
-sql/           SQLite Phase 4 analysis scripts and run instructions
-powerbi/       Power BI project files (to be added)
-reports/       Findings and documentation
-visuals/       Exported charts and dashboard images
-```
+    dataset/       Dataset source notes and exported SQL result archive
+    notebooks/     Python/Colab notebooks
+    powerbi/       Power BI documentation; PBIX report is in repository root
+    reports/       Findings and documentation
+    sql/           SQLite Phase 4 analysis scripts and run instructions
+    visuals/       Visual assets guidance; screenshots currently in repository root
+    *.png          Five Power BI page screenshots
+    *.pbix         Interactive Power BI report
 
 ## Technology stack
 
@@ -122,7 +142,7 @@ Python, pandas, NumPy, Matplotlib, Seaborn, scikit-learn, SQLite, Power BI, Goog
 
 ## Reproducibility
 
-Install dependencies with `pip install -r requirements.txt`. The uploaded notebooks document the current analysis workflow. Phase 4 SQL queries are available in [sql/phase4_business_analysis.sql](sql/phase4_business_analysis.sql); load the cleaned data into a SQLite table named `orders` and follow [sql/README.md](sql/README.md). Confirm data paths and rerun cells in a fresh runtime before reproducing results.
+Install dependencies with pip install -r requirements.txt. The uploaded notebooks document the current analysis workflow. Phase 4 SQL queries are available in [sql/phase4_business_analysis.sql](sql/phase4_business_analysis.sql); load the cleaned data into a SQLite table named orders and follow [sql/README.md](sql/README.md). Confirm data paths and rerun cells in a fresh runtime before reproducing results. Notebook execution in a fresh environment has not been independently verified.
 
 ## License and attribution
 
