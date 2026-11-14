@@ -122,7 +122,7 @@ Saved notebook outputs are included, but a full restart-and-run-all test in a cl
 - 828 rows dated after 2026-11-06 are excluded from historical analysis but retained in the source dataset.
 - November 2026 is incomplete at the analysis cutoff.
 - Harry Olson is associated with five Customer IDs; two orders are linked to multiple Customer IDs. No IDs have been merged.
-- Phase 4 reports 4,678 customer-order associations versus 4,672 distinct Order IDs; an earlier Phase 3 summary reported 5,117 associations. This discrepancy remains unresolved.
+- Phase 4 reports 4,678 customer-order associations versus 4,672 distinct Order IDs. An earlier Phase 3 summary reported 5,117 associations, so the phase-to-phase difference is unresolved. The six-association excess in Phase 4 also indicates that some Order IDs map to multiple Customer IDs.
 - Phase 3 previously reported 12 one-time customers, while Phase 4 SQL reported 24. This also remains unresolved.
 - Discount-band relationships are descriptive associations, not proof of causation.
 - Ad spend, web traffic, conversion, inventory, and campaign data are unavailable.
