@@ -4,6 +4,12 @@
 
 This project examines sales performance, product profitability, discount patterns, regional results, customer purchasing behaviour, and RFM-based customer segments.
 
+## Responsible AI-Assisted Development
+
+AI supported learning, problem framing, Python/SQL troubleshooting, understanding analytical methods such as RFM, and organizing project documentation. Suggestions were treated as drafts to inspect and test; project findings are based on the executed analysis and saved outputs. The analyst remains responsible for validating results, understanding the methodology, and explaining business conclusions.
+
+[Read the detailed AI usage, workflow, and limitations](AI_USAGE.md).
+
 ## Project at a glance
 
 | Area | Status |
