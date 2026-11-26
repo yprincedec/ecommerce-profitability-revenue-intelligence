@@ -46,7 +46,15 @@ The historical analysis uses records through **2026-11-06**. The 828 records dat
 | Customers | **804** |
 | Historical records | **9,366** |
 
-## Dataset overview
+## Dataset & Data Sources
+
+| Dataset | Source | Records | Purpose |
+|---|---|---:|---|
+| Modified/extended Superstore-style workbook | [Tableau Public Sample Data (reference dataset)](https://public.tableau.com/app/resources/sample-data) | 10,194 | Sales, profitability and customer analytics |
+
+The Tableau link is a reference source, not a verified download link for the exact modified workbook used in this project.
+
+### Dataset overview
 
 The inspected working workbook contains **10,194 rows × 21 columns**: 9,994 US records and 200 Canadian records. It contains 5,111 unique orders, 804 Customer IDs, and 1,862 products across dates from 2023-01-03 to 2026-12-30. No missing values, exact duplicate rows, or duplicate Row IDs were found.
 
@@ -144,3 +152,7 @@ Saved notebook outputs are included, but a full restart-and-run-all test in a cl
 ---
 
 *Dataset attribution and redistribution rights should be verified against the original source before the workbook is shared.*
+
+## Author
+
+**Prince Yadav** — [LinkedIn](https://linkedin.com/in/yprincedec)
